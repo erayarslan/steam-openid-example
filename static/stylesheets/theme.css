@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* Bu döküman Yiğit Biber tarafından kodlanmıştır */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
+/* Reset */
+body {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  background-color: #34495e;
+  color: #ecf0f1;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #3498db;
+}
+.circular {
+  border-radius: 70px;
+}
+/* Profile */
+.profile {
+  margin: 50px auto;
+}
+.profile h1 {
+  font-size: 25px;
+}
+.thumb {
+  width: 140px;
+  height: 140px;
+  margin: 10px auto;
+}
+/* Text */
+.text {
+  padding: 50px 0;
+  background-color: #2c3e50;
+}
+/* Footer */
+footer {
+  margin-top: 50px;
+}

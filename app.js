@@ -6,6 +6,7 @@ var app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/app/views');
+app.use('/static', express.static(__dirname + '/static'));
 
 var Steam = new openid.RelyingParty(
   "http://localhost:3000/verify",
@@ -24,7 +25,8 @@ app.get('/', function(req, res) {
 
         res.render('profile', {
           avatar: data.avatarfull,
-          date: moment(data.lastlogoff * 1000).fromNow()
+          date: moment(data.lastlogoff * 1000).fromNow(),
+          name: data.personaname
         });
       } else {
         res.render('error', { content: data });

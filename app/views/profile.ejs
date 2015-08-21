@@ -1,4 +1,17 @@
-<a href="/logout">logout</a>
-<img src='<%= avatar %>'/>
-<hr/>
-<h2>last online: <%= date %></h2>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/stylesheets/theme.css">
+  </head>
+  <body>
+    <div class="profile">
+      <div class="thumb circular" style="background: url(<%= avatar %>)"></div>
+      <h1><%= name %></h1>
+    </div>
+    <div class="text">
+      <p>last online: <%= date %></p>
+    </div>
+    <footer>
+      <p>You can logout at <a href="/logout">here</a></p>
+    </footer>
+  </body>
+</html>
