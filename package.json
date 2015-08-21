@@ -28,6 +28,9 @@
     "openid": "*",
     "request": "*",
     "moment": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "lowdb": "*",
+    "rand-token": "*",
+    "cookie-parser": "*"
   }
 }

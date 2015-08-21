@@ -3,12 +3,16 @@
     <link rel="stylesheet" type="text/css" href="/static/stylesheets/theme.css">
   </head>
   <body>
-    <div class="profile">
-      <div class="thumb circular" style="background: url(<%= avatar %>)"></div>
+    <div class="image">
+      <a href = "<%= profile_url %>">
+        <div class="thumb circular" style="background: url(<%= avatar %>)">
+        </div>
+      </a>
       <h1><%= name %></h1>
     </div>
     <div class="text">
-      <p>last online: <%= date %></p>
+      <p><b>last online </b> <%= date %></p>
+      <p><b>location    </b> <%= location_str %></p>
     </div>
     <footer>
       <p>You can logout at <a href="/logout">here</a></p>
