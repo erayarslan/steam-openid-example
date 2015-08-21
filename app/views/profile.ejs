@@ -14,6 +14,13 @@
       <p><b>last offline@</b><%= date %></p>
       <p><b>location@</b><%= location_str %></p>
     </div>
+    <%
+      for (var i = 0; i < friends.length; i++) {
+    %>
+        <p><a href="/<%= utils.stoc(friends[i].steamid) %>"><%= friends[i].personaname %></a></p>
+    <%
+      }
+    %>
     <footer>
       <p>You can logout at <a href="/logout">here</a></p>
     </footer>
