@@ -24,7 +24,7 @@ app.get('/', utils.ness, function(req, res) {
   res.render('login', {});
 });
 
-app.get('/authenticate', function(req, res) {
+app.get('/authenticate', utils.ness, function(req, res) {
   Steam.authenticate(config.steamOpenIdUrl, false, function(err, url) {
     if(err) {
       res.render('error', { content: 'Authentication failed: ' + err });
@@ -38,7 +38,7 @@ app.get('/authenticate', function(req, res) {
   });
 });
 
-app.get('/verify', function(req, res) {
+app.get('/verify', utils.ness, function(req, res) {
   Steam.verifyAssertion(req, function(err, result) {
     if(err) {
       res.send(err).end();
