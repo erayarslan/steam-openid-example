@@ -96,5 +96,9 @@ app.get('/:id', utils.secure, function (req, res) {
   });
 });
 
+app.get('*', function (req, res) {
+  res.render("error", { content: "404" });
+});
+
 app.listen(3000);
 
