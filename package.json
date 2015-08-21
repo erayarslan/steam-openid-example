@@ -1,0 +1,30 @@
+{
+  "name": "steam-openid-example",
+  "version": "0.0.1",
+  "description": "simple login example",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erayarslan/steam-openid-example.git"
+  },
+  "keywords": [
+    "steam",
+    "openid",
+    "example",
+    "login"
+  ],
+  "author": "Eray Arslan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erayarslan/steam-openid-example/issues"
+  },
+  "homepage": "https://github.com/erayarslan/steam-openid-example#readme",
+  "dependencies": {
+    "express": "*",
+    "openid": "*"
+  }
+}
