@@ -25,6 +25,8 @@
   "homepage": "https://github.com/erayarslan/steam-openid-example#readme",
   "dependencies": {
     "express": "*",
-    "openid": "*"
+    "openid": "*",
+    "request": "*",
+    "moment": "*"
   }
 }

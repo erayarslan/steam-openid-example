@@ -1,5 +1,7 @@
 var express = require('express');
 var openid = require('openid');
+var moment = require('moment');
+var utils = require(__dirname + "/libs/utils");
 var app = express();
 
 var Steam = new openid.RelyingParty(
@@ -9,13 +11,21 @@ var Steam = new openid.RelyingParty(
 );
 
 var steamOpenIDUrl = "http://steamcommunity.com/openid";
+var steamApiKey = "";
 
 app.get('/', function(req, res) {
   var loginTemplate = "<a href='/authenticate'><img src='https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png'></a>";
   if (req.query.id) {
-    res.send("welcome " + req.query.id).end();
+    utils.getUserInfo(req.query.id, steamApiKey, function (data) {
+      if (typeof data !== "undefined" && typeof data.response !== "undefined" && typeof data.response.players[0] !== "undefined") {
+        data = data.response.players[0];
+        res.send("<img src='" + data.avatarfull + "'/><hr/><h2>last online: " + moment(data.lastlogoff * 1000).fromNow() + "</h2>").end();
+      } else {
+        res.send(data).end();
+      }
+    });
   } else {
-    res.send(loginTemplate);
+    res.send(loginTemplate).end();
   }
 });
 
