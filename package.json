@@ -27,6 +27,7 @@
     "express": "*",
     "openid": "*",
     "request": "*",
-    "moment": "*"
+    "moment": "*",
+    "ejs": "*"
   }
 }

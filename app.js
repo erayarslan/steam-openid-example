@@ -4,6 +4,9 @@ var moment = require('moment');
 var utils = require(__dirname + "/libs/utils");
 var app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/app/views');
+
 var Steam = new openid.RelyingParty(
   "http://localhost:3000/verify",
   "http://localhost:3000/",
@@ -11,31 +14,34 @@ var Steam = new openid.RelyingParty(
 );
 
 var steamOpenIDUrl = "http://steamcommunity.com/openid";
-var steamApiKey = "";
+var steamApiKey = "26DE8B5C9D296C796064E890F35FA5D0";
 
 app.get('/', function(req, res) {
-  var loginTemplate = "<a href='/authenticate'><img src='https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_small.png'></a>";
   if (req.query.id) {
     utils.getUserInfo(req.query.id, steamApiKey, function (data) {
       if (typeof data !== "undefined" && typeof data.response !== "undefined" && typeof data.response.players[0] !== "undefined") {
         data = data.response.players[0];
-        res.send("<img src='" + data.avatarfull + "'/><hr/><h2>last online: " + moment(data.lastlogoff * 1000).fromNow() + "</h2>").end();
+
+        res.render('profile', {
+          avatar: data.avatarfull,
+          date: moment(data.lastlogoff * 1000).fromNow()
+        });
       } else {
-        res.send(data).end();
+        res.render('error', { content: data });
       }
     });
   } else {
-    res.send(loginTemplate).end();
+    res.render('login', {});
   }
 });
 
 app.get('/authenticate', function(req, res) {
   Steam.authenticate(steamOpenIDUrl, false, function(err, url) {
     if(err) {
-      res.send('Authentication failed: ' + err).end();
+      res.render('error', { content: 'Authentication failed: ' + err });
     } else {
       if(!url) {
-        res.send('Authentication failed.').end();
+        res.render('error', { content: 'Authentication failed.'});
       } else {
         res.redirect(url);
       }
@@ -49,13 +55,17 @@ app.get('/verify', function(req, res) {
       res.send(err).end();
     } else {
       if(!result || !result.authenticated) {
-        res.send('Failed to authenticate user.').end();
+        res.render('error', { content: 'Failed to authenticate user.' });
       } else {
         steam_id = result.claimedIdentifier.replace('http://steamcommunity.com/openid/id/', '');
         res.redirect('/?id=' + steam_id);
       }
     }
   });
+});
+
+app.get('/logout', function (req, res) {
+  res.redirect('/');
 });
 
 app.listen(3000);
