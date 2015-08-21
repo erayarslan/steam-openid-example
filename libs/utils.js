@@ -19,13 +19,18 @@ var ctos = function (c) {
 
 module.exports = {
   getUserInfo : function (id, callback) {
-    request('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + config.steamApiKey + '&steamids=' + id, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        callback(JSON.parse(body));
-      } else {
-        callback(body);
+    request('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key='+
+      config.steamApiKey +
+      '&steamids=' +
+      id,
+      function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          callback(JSON.parse(body));
+        } else {
+          callback(body);
+        }
       }
-    });
+    );
   },
   stoc: stoc,
   ctos: ctos,
