@@ -2,7 +2,7 @@ var request = require('request');
 var config = require(__dirname + '/config');
 
 module.exports = {
-  getUserInfo : function (id, callback) {
+  getUserInfo: function (id, callback) {
     request('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' +
       config.steamApiKey +
       '&steamids=' +
@@ -12,8 +12,8 @@ module.exports = {
           var data = JSON.parse(body);
 
           if (typeof data !== 'undefined' &&
-              typeof data.response !== 'undefined' &&
-              typeof data.response.players[0] !== 'undefined') {
+            typeof data.response !== 'undefined' &&
+            typeof data.response.players[0] !== 'undefined') {
             callback(data.response.players[0]);
           } else {
             callback(false);
@@ -34,8 +34,8 @@ module.exports = {
           var data = JSON.parse(body);
 
           if (typeof data !== 'undefined' &&
-              typeof data.friendslist !== 'undefined' &&
-              typeof data.friendslist.friends !== 'undefined') {
+            typeof data.friendslist !== 'undefined' &&
+            typeof data.friendslist.friends !== 'undefined') {
             callback(data.friendslist.friends);
           } else {
             callback(false);

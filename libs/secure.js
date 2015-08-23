@@ -1,7 +1,7 @@
 var utils = require(__dirname + '/utils');
 
 module.exports = {
-	secure: function (req, res, next) {
+  secure: function (req, res, next) {
     var done = users.find(function (obj) {
       return obj.token === req.cookies.token;
     });

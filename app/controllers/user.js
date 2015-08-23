@@ -2,7 +2,7 @@ var utils = require(__dirname + '/../../libs/utils');
 var moment = require('moment');
 
 module.exports.getUserById = function (req, res) {
-	utils.getUserInfo(utils.ctos(req.params.id), function (data) {
+  utils.getUserInfo(utils.ctos(req.params.id), function (data) {
     if (data !== false) {
       utils.getFriendList(utils.ctos(req.params.id), function (list) {
         var loop = list.length;
@@ -43,7 +43,7 @@ module.exports.getUserById = function (req, res) {
         }
       });
     } else {
-      res.render('error', { content: data });
+      res.render('error', {content: data});
     }
   });
 };
