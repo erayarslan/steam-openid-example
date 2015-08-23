@@ -1,7 +1,8 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/static/stylesheets/theme.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="/static/javascript/jquery.js"></script>
+    <script src="/static/javascript/app.js"></script>
   </head>
   <body>
     <div class="image">
@@ -21,23 +22,7 @@
       <p>You can logout at <a href="/logout">here</a></p>
     </footer>
     <script>
-      var stoc = function (s) {
-        var result = [];
-        for (var i = 0; i < s.length; i++) {
-          result.push(String.fromCharCode(parseInt(s[i]) + 97));
-        }
-        return result.join('');
-      };
-
-      var friends = JSON.parse('<%- friends %>');
-      for (var i in friends) {
-        $.get("http://localhost/ajax/user/" + friends[i].steamid, function (data) {
-          if (data.type === "success") {
-            var html = '<p><a href="/' + stoc(data.message.steamid) + '">' + data.message.personaname + '</a></p>';
-            $("#friends").append(html);
-          }
-        });
-      }
+      profile('<%- friends %>');
     </script>
   </body>
 </html>
