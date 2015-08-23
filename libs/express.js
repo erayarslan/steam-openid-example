@@ -10,11 +10,12 @@ app.use('/static', express.static(__dirname + '/../static'));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/../app/views');
 
-app.get('/', secure.ness, home.home);
-app.get('/authenticate', secure.ness, home.authenticate);
-app.get('/verify', secure.ness, home.verify);
-app.get('/logout', secure.secure, home.logout);
-app.get('/:id', secure.secure, user.getUserById);
+app.get('/', secure.NotNeedAuth, home.home);
+app.get('/authenticate', secure.NotNeedAuth, home.authenticate);
+app.get('/verify', secure.NotNeedAuth, home.verify);
+app.get('/logout', secure.NeedAuth, home.logout);
+app.get('/:id', secure.NeedAuth, user.profile);
+app.get('/ajax/user/:id', secure.NeedAuth, user.getUserBySteamId);
 app.get('*', home.default);
 
-app.listen(3000);
+app.listen(80);

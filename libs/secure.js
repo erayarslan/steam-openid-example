@@ -1,7 +1,7 @@
 var utils = require(__dirname + '/utils');
 
 module.exports = {
-  secure: function (req, res, next) {
+  NeedAuth: function (req, res, next) {
     var done = users.find(function (obj) {
       return obj.token === req.cookies.token;
     });
@@ -13,7 +13,7 @@ module.exports = {
       next();
     }
   },
-  ness: function (req, res, next) {
+  NotNeedAuth: function (req, res, next) {
     var done = users.find(function (obj) {
       return obj.token === req.cookies.token;
     });
