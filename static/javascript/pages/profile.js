@@ -6,9 +6,13 @@ var profile = function (friends) {
   friends = JSON.parse(friends);
 
   var loop = friends.length;
-  var inc = 1/friends.length;
+  var inc = 1 / friends.length;
 
   NProgress.set(0.0);
+  if (loop == 0) {
+    $("#friends").html(result_html.join(''));
+    NProgress.set(1.0);
+  }
 
   for (var i in friends) {
     $.get(baseURL + "/ajax/user/" + friends[i].steamid, function (data) {
