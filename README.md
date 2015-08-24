@@ -2,4 +2,4 @@
 > simple login example
 
 ##
-> [libs/config.js].steamApiKey # http://steamcommunity.com/dev/apikey
+> [libs/config.js].steamApiKey # http://steamcommunity.com/dev/apikey SA
