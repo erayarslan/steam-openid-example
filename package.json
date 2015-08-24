@@ -31,6 +31,7 @@
     "ejs": "*",
     "lowdb": "*",
     "rand-token": "*",
-    "cookie-parser": "*"
+    "cookie-parser": "*",
+    "serve-favicon": "*"
   }
 }

@@ -7,6 +7,7 @@ var app = express();
 
 app.use(require('cookie-parser')());
 app.use('/static', express.static(__dirname + '/../static'));
+app.use(require('serve-favicon')(__dirname + '/../static/favicon.ico'));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/../app/views');
 

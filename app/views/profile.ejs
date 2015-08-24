@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>pr0file</title>
     <link rel="stylesheet" type="text/css" href="/static/stylesheets/theme.css">
     <link rel="stylesheet" type="text/css" href="/static/stylesheets/nprogress.css">
     <script src="/static/javascript/jquery.js"></script>
@@ -15,9 +16,19 @@
       </a>
       <h1><%= name %></h1>
     </div>
-    <div class="text">
-      <p><b>last offline@</b><%= date %></p>
-      <p><b>location@</b><%= location_str %></p>
+    <div class="text" align="center">
+      <p>
+        <table>
+          <tr>
+            <td><p><b>last offline</b></p></td>
+            <td><p><%= date %></p></td>
+          </tr>
+          <tr>
+            <td><p><b>location</b></p></td>
+            <td><p><%= country + "/" + state %></p></td>
+          </tr>
+        </table>
+      </p>
     </div>
     <div id="friends">
     </div>
