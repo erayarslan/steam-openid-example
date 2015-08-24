@@ -25,7 +25,7 @@
           </tr>
           <tr>
             <td><p><b>location</b></p></td>
-            <td><p><%= country + "/" + state %></p></td>
+            <td><p><%- country %><%= state %></p></td>
           </tr>
         </table>
       </p>
@@ -36,6 +36,62 @@
         </div>
       </div>
     </div>
+    <div class="chatter">
+
+  <div class="chatter_pre_signup">
+  <input type="text" name="chatter_name" placeholder="Your name" class="chatter_field chatter_name" />
+  <input type="text" name="chatter_email" placeholder="Your email address" class="chatter_field chatter_email" />
+  <input type="submit" name="chatter_create_user" value="Start Chatting" class="chatter_btn chatter_create_user" />
+  </div>
+
+  <div class="chatter_post_signup">
+    <div class="chatter_convo">
+
+      <span class="chatter_msg_item chatter_msg_item_admin">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/luke_noframe_sm.jpg" /></a>
+        <strong class="chatter_name">Luke Peters</strong>Hello!</span>
+
+      <span class="chatter_msg_item chatter_msg_item_user">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Jack Sparrow</strong>Oh hello. Who is this?</span>
+
+      <span class="chatter_msg_item chatter_msg_item_admin">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/luke_noframe_sm.jpg" /></a>
+        <strong class="chatter_name">Luke Peters</strong>My name is Luke. How can I help you today? :)</span>
+
+      <span class="chatter_msg_item chatter_msg_item_user">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Jack Sparrow</strong>Just saying hello!</span>
+
+      <span class="chatter_msg_item chatter_msg_item_admin">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Luke Peters</strong>Oh alright, Hello then Jack, you pirate, you.</span>
+
+      <span class="chatter_msg_item chatter_msg_item_admin">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Luke Peters</strong>Hello!</span>
+
+      <span class="chatter_msg_item chatter_msg_item_user">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Jack Sparrow</strong>Oh hello. Who is this?</span>
+
+      <span class="chatter_msg_item chatter_msg_item_admin">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Luke Peters</strong>My name is Luke. How can I help you today? :)</span>
+
+      <span class="chatter_msg_item chatter_msg_item_user">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Jack Sparrow</strong>Just saying hello!</span>
+
+      <span class="chatter_msg_item chatter_msg_item_admin">
+        <a href="" class="chatter_avatar"><img src="http://img.lukepeters.me/jack.jpg" /></a>
+        <strong class="chatter_name">Luke Peters</strong>Oh alright, Hello then Jack, you pirate, you.</span>
+
+    </div>
+    <textarea name="chatter_message" placeholder="Type your message here..." class="chatter_field chatter_message"></textarea>
+  </div>
+
+</div>
     <footer>
       <p>You can logout at <a href="/logout">here</a></p>
     </footer>

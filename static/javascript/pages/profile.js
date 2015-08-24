@@ -1,11 +1,5 @@
 var profile = function (friends) {
-  $(".box").hover(
-    function() {
-      $(this).append($("<span>***</span>"));
-    }, function() {
-      $(this).find("span:last").remove();
-    }
-  );
+  $('.chatter_convo').scrollTop($('.chatter_convo')[0].scrollHeight);
 
   var result_html = [];
 

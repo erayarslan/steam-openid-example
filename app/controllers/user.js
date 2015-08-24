@@ -9,7 +9,7 @@ module.exports.profile = function (req, res) {
           avatar: data.avatarfull,
           date: moment(data.lastlogoff * 1000).fromNow(),
           name: data.personaname,
-          country: typeof data.loccountrycode !== "undefined" ? data.loccountrycode : "?",
+          country: typeof data.loccountrycode !== "undefined" ? "<img src='http://steamcommunity-a.akamaihd.net/public/images/countryflags/" + data.loccountrycode.toLowerCase() + ".gif'/>" : "?",
           state: typeof data.locstatecode !== "undefined" ? data.locstatecode : "?",
           profile_url: data.profileurl,
           friends: JSON.stringify(friends),
