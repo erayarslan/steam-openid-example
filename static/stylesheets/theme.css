@@ -9,31 +9,70 @@ body {
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: #3498db;
 }
+
 .circular {
   border-radius: 70px;
 }
+
 .image {
   margin: 50px auto;
 }
+
 .image h1 {
   font-size: 25px;
 }
+
 .thumb {
   width: 140px;
   height: 140px;
   margin: 10px auto;
 }
+
 .text {
   padding: 25px 0;
   background-color: #2c3e50;
 }
+
 .text p {
   margin: 0px;
 }
+
 footer {
   margin-top: 50px;
+}
+
+.wrapper {
+  width: 600px;
+  margin:30px auto 0;
+  background-color:#34495e;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container:after {
+  content:"";
+  clear:both;
+  display:table;
+}
+
+.container {
+  padding:10px 0 10px 10px;
+}
+
+.wrapper .box {
+  float:left;
+  width:100px;
+  height:100px;
+  margin:0 10px 10px 0;
+  background-color:#2c3e50;
+  -webkit-transition:all 1.0s ease;
+  -moz-transition:all 1.0s ease;
+  transition:all 1.0s ease;
+  transition:all 1.0s ease;
 }

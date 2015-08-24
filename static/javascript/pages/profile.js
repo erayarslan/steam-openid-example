@@ -1,4 +1,12 @@
 var profile = function (friends) {
+  $(".box").hover(
+    function() {
+      $(this).append($("<span>***</span>"));
+    }, function() {
+      $(this).find("span:last").remove();
+    }
+  );
+
   var result_html = [];
 
   friends = JSON.parse(friends);
@@ -11,7 +19,7 @@ var profile = function (friends) {
   for (var i in friends) {
     $.get(baseURL + "/ajax/user/" + friends[i].steamid, function (data) {
       if (data.type === "success") {
-        var html = '<p><a href="/' + stoc(data.message.steamid) + '">' + data.message.personaname + '</a></p>';
+        var html = '<div class="box"><a href="/' + stoc(data.message.steamid) + '" title="' + data.message.personaname + '"><img height="100" width="100" src="' + data.message.avatarfull + '"/></a></div>';
         result_html.push(html);
 
         NProgress.inc(inc);
