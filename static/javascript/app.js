@@ -7,15 +7,3 @@ var stoc = function (s) {
   }
   return result.join('');
 };
-
-var profile = function (friends) {
-  var friends = JSON.parse(friends);
-  for (var i in friends) {
-    $.get(baseURL + "/ajax/user/" + friends[i].steamid, function (data) {
-      if (data.type === "success") {
-        var html = '<p><a href="/' + stoc(data.message.steamid) + '">' + data.message.personaname + '</a></p>';
-        $("#friends").append(html);
-      }
-    });
-  }
-};
