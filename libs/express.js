@@ -16,6 +16,7 @@ app.get('/authenticate', secure.NotNeedAuth, home.authenticate);
 app.get('/verify', secure.NotNeedAuth, home.verify);
 app.get('/logout', secure.NeedAuth, home.logout);
 app.get('/:id', secure.NeedAuth, user.profile);
+app.get('/ajax/user/level/:id', secure.NeedAuth, user.getLevelBySteamId);
 app.get('/ajax/user/:id', secure.NeedAuth, user.getUserBySteamId);
 app.get('*', home.default);
 

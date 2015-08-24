@@ -32,3 +32,13 @@ module.exports.getUserBySteamId = function (req, res) {
     }
   });
 };
+
+module.exports.getLevelBySteamId = function (req, res) {
+  utils.getUserLevel(req.params.id, function (data) {
+    if (data !== false) {
+      res.json({type: "success", message: data});
+    } else {
+      res.json({type: "error", message: "not_found"});
+    }
+  });
+};

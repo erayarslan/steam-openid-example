@@ -46,6 +46,27 @@ module.exports = {
       }
     );
   },
+  getUserLevel: function (id, callback) {
+    request('http://api.steampowered.com/IPlayerService/GetSteamLevel/v1?key=' +
+      config.steamApiKey +
+      '&steamid=' + id,
+      function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          var data = JSON.parse(body);
+
+          if (typeof data !== 'undefined' &&
+            typeof data.response !== 'undefined' &&
+            typeof data.response.player_level !== 'undefined') {
+            callback(data.response.player_level);
+          } else {
+            callback(false);
+          }
+        } else {
+          callback(body);
+        }
+      }
+    );
+  },
   stoc: function (s) {
     var result = [];
     for (var i = 0; i < s.length; i++) {
